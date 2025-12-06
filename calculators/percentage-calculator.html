@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Percentage Calculator</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+<header>
+  <h1>CalcMaster</h1>
+  <nav>
+    <a href="../index.html">Home</a>
+    <a href="../about.html">About</a>
+    <a href="../contact.html">Contact</a>
+  </nav>
+</header>
+
+<div class="container">
+  <h2>Percentage Calculator</h2>
+  <p>Find percentage values quickly and accurately.</p>
+
+  <input id="value" type="number" placeholder="Enter the value">
+  <input id="percent" type="number" placeholder="Enter percentage">
+
+  <button onclick="calculate()">Calculate</button>
+
+  <div class="result" id="output"></div>
+
+  <h3>Formula</h3>
+  <p>Percentage = (Value × Percent) ÷ 100</p>
+
+  <h3>Example</h3>
+  <p>If value = 250 and percent = 10% → Result = 25</p>
+</div>
+
+<footer>
+  © 2025 CalcMaster
+</footer>
+
+<script>
+function calculate() {
+  const value = document.getElementById('value').value;
+  const percent = document.getElementById('percent').value;
+
+  if (value && percent) {
+    const result = (value * percent) / 100;
+    document.getElementById('output').innerText =
+      percent + "% of " + value + " = " + result;
+  } else {
+    document.getElementById('output').innerText =
+      "Please enter both fields.";
+  }
+}
+</script>
+
+</body>
+</html>
