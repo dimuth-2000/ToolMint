@@ -1,0 +1,96 @@
+/* Global Dark Modern Theme */
+body {
+  margin: 0;
+  font-family: "Inter", Arial, sans-serif;
+  background: #0d0f17;
+  color: #e6e6e6;
+}
+
+header {
+  background: #11131d;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #1e2130;
+}
+
+header h1 {
+  font-size: 24px;
+  color: #4f8cff;
+}
+
+nav a {
+  color: #c7c7c7;
+  margin-left: 25px;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+nav a:hover {
+  color: #4f8cff;
+}
+
+.container {
+  max-width: 700px;
+  margin: 40px auto;
+  background: #161822;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.25);
+}
+
+input, select {
+  width: 100%;
+  padding: 12px;
+  margin: 12px 0;
+  background: #0f1017;
+  border: 1px solid #343849;
+  border-radius: 8px;
+  color: #e6e6e6;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 12px;
+  background: #4f8cff;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #3a6fd9;
+}
+
+.result {
+  margin-top: 20px;
+  font-size: 20px;
+  color: #70d6ff;
+}
+
+.tool-card {
+  background: #161822;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 18px;
+  border: 1px solid #1e2130;
+  transition: 0.2s;
+}
+
+.tool-card:hover {
+  border-color: #4f8cff;
+  transform: translateY(-2px);
+}
+
+footer {
+  padding: 25px;
+  text-align: center;
+  color: #8a8a8a;
+  margin-top: 50px;
+  border-top: 1px solid #1e2130;
+}
