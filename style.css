@@ -1,170 +1,56 @@
-/* ------------------------------
-  Body & Typography
------------------------------- */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #121212;
-  color: #fff;
-}
-
-h1, h2, h3 {
-  margin: 0;
-}
-
-a {
-  color: #fff;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-/* ------------------------------
-  Header
------------------------------- */
-header {
-  background-color: #1f1f1f;
-  padding: 15px 20px;
-  text-align: center;
-}
-
-header h1 {
-  font-size: 26px;
-  cursor: pointer;
-}
-
-header nav {
-  margin-top: 10px;
-}
-
-header nav a {
-  margin: 0 10px;
-  font-weight: bold;
-}
-
-/* ------------------------------
-  Container
------------------------------- */
-.container {
-  max-width: 1000px;
-  margin: 20px auto;
-  padding: 0 15px;
-}
-
-/* ------------------------------
-  Tool Grid for 10 Most Popular Tools
------------------------------- */
-.tool-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.tool-grid .tool-card {
-  flex: 1 1 calc(50% - 10px); /* 2 per row on desktop */
+/* Tool Cards */
+.tool-card {
   background-color: #1a1a1a;
   padding: 15px;
   border-radius: 8px;
   text-align: center;
-  transition: all 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 10px;
   font-size: 16px;
+  transition: all 0.2s ease;
+  cursor: pointer;
 }
 
-.tool-grid .tool-card i {
+.tool-card i {
   font-size: 20px;
   color: #0d6efd;
 }
 
+/* Hover effect */
+.tool-card:hover {
+  background-color: #333;
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+/* Most Popular Tools Highlight */
+.tool-grid .tool-card {
+  background: linear-gradient(135deg, #0d6efd, #0056b3);
+  color: #fff;
+}
+
 .tool-grid .tool-card:hover {
-  background-color: #333;
+  background: linear-gradient(135deg, #0056b3, #0d6efd);
 }
 
-/* ------------------------------
-  Categories Grid
------------------------------- */
-.categories {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 15px;
-}
-
+/* Categories Grid */
 .categories .tool-card {
-  flex: 1 1 calc(33.33% - 10px); /* 3 per row on desktop */
-  background-color: #1a1a1a;
-  padding: 15px;
-  border-radius: 8px;
-  text-align: center;
-  display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: all 0.2s ease;
+  gap: 8px;
+  background-color: #1a1a1a;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
 }
 
-.categories .tool-card i {
-  font-size: 24px;
-  color: #0d6efd;
-}
-
-.categories .tool-card:hover {
-  background-color: #333;
-}
-
-/* ------------------------------
-  Footer
------------------------------- */
-footer {
-  text-align: center;
-  padding: 15px;
-  margin-top: 40px;
-  background-color: #1f1f1f;
-  font-size: 14px;
-}
-
-/* ------------------------------
-  Responsive Design
------------------------------- */
+/* Responsive */
 @media (max-width: 1024px) {
-  .tool-grid .tool-card {
-    flex: 1 1 45%;
-  }
-  .categories .tool-card {
+  .tool-grid .tool-card, .categories .tool-card {
     flex: 1 1 45%;
   }
 }
-
 @media (max-width: 768px) {
-  .tool-grid .tool-card,
-  .categories .tool-card {
+  .tool-grid .tool-card, .categories .tool-card {
     flex: 1 1 100%;
-  }
-  header nav a {
-    display: block;
-    margin: 5px 0;
-  }
-}
-
-@media (max-width: 480px) {
-  header h1 {
-    font-size: 22px;
-  }
-  .tool-grid .tool-card i,
-  .categories .tool-card i {
-    font-size: 18px;
-  }
-  .tool-grid .tool-card,
-  .categories .tool-card {
-    font-size: 14px;
-    padding: 12px;
   }
 }
