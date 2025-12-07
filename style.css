@@ -54,107 +54,70 @@ header nav a {
 }
 
 /* ------------------------------
-  Tool Cards Grid
+  Tool Grid for 10 Most Popular Tools
 ------------------------------ */
-.tool-list {
+.tool-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   margin-top: 10px;
 }
 
-.tool-card {
-  flex: 1 1 calc(50% - 10px); /* 2 cards per row on desktop */
+.tool-grid .tool-card {
+  flex: 1 1 calc(50% - 10px); /* 2 per row on desktop */
   background-color: #1a1a1a;
-  padding: 12px 15px;
-  border-radius: 6px;
+  padding: 15px;
+  border-radius: 8px;
   text-align: center;
   transition: all 0.2s ease;
-}
-
-.tool-card a {
-  display: block;
-  font-size: 16px;
-  font-weight: bold;
-}
-
-.tool-card:hover {
-  background-color: #333;
-}
-
-.tool-card.highlight {
-  background-color: #2a2a2a;
-}
-
-/* ------------------------------
-  Categories
------------------------------- */
-.category {
-  margin-top: 20px;
-}
-
-.category h3 {
-  cursor: pointer;
-  background-color: #222;
-  color: #fff;
-  padding: 10px;
-  border-radius: 5px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  font-size: 18px;
-  transition: background 0.2s;
+  justify-content: center;
+  gap: 8px;
+  font-size: 16px;
 }
 
-.category h3:hover {
+.tool-grid .tool-card i {
+  font-size: 20px;
+  color: #0d6efd;
+}
+
+.tool-grid .tool-card:hover {
   background-color: #333;
 }
 
 /* ------------------------------
-  Buttons & Inputs
+  Categories Grid
 ------------------------------ */
-button {
-  padding: 10px 20px;
-  background-color: #0d6efd;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.categories .tool-card {
+  flex: 1 1 calc(33.33% - 10px); /* 3 per row on desktop */
+  background-color: #1a1a1a;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
   cursor: pointer;
-  margin-top: 10px;
   transition: all 0.2s ease;
 }
 
-button:hover {
-  background-color: #0056b3;
+.categories .tool-card i {
+  font-size: 24px;
+  color: #0d6efd;
 }
 
-input[type="number"], input[type="text"], select {
-  padding: 10px;
-  width: 100%;
-  max-width: 300px;
-  margin: 5px 0;
-  border-radius: 5px;
-  border: none;
-  outline: none;
-  background-color: #1a1a1a;
-  color: #fff;
-}
-
-input::placeholder {
-  color: #aaa;
-}
-
-/* ------------------------------
-  Results / Output Boxes
------------------------------- */
-.result {
-  margin-top: 15px;
-  padding: 10px;
-  background-color: #1a1a1a;
-  border-radius: 5px;
-  color: #fff;
-  font-family: monospace;
-  word-break: break-word;
+.categories .tool-card:hover {
+  background-color: #333;
 }
 
 /* ------------------------------
@@ -172,14 +135,22 @@ footer {
   Responsive Design
 ------------------------------ */
 @media (max-width: 1024px) {
-  .tool-card {
-    flex: 1 1 45%; /* Two cards per row */
+  .tool-grid .tool-card {
+    flex: 1 1 45%;
+  }
+  .categories .tool-card {
+    flex: 1 1 45%;
   }
 }
 
 @media (max-width: 768px) {
-  .tool-card {
-    flex: 1 1 100%; /* Full width on tablets */
+  .tool-grid .tool-card,
+  .categories .tool-card {
+    flex: 1 1 100%;
+  }
+  header nav a {
+    display: block;
+    margin: 5px 0;
   }
 }
 
@@ -187,22 +158,13 @@ footer {
   header h1 {
     font-size: 22px;
   }
-
-  header nav a {
-    display: block;
-    margin: 5px 0;
+  .tool-grid .tool-card i,
+  .categories .tool-card i {
+    font-size: 18px;
   }
-
-  .category h3 {
-    font-size: 16px;
-    padding: 8px;
-  }
-
-  button {
-    width: 100%;
-  }
-
-  input[type="number"], input[type="text"], select {
-    max-width: 100%;
+  .tool-grid .tool-card,
+  .categories .tool-card {
+    font-size: 14px;
+    padding: 12px;
   }
 }
