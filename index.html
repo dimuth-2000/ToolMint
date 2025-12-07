@@ -5,41 +5,194 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
+    /* ------------------------------
+      Body & Typography
+    ------------------------------ */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #fff;
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+    }
+
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* ------------------------------
+      Header
+    ------------------------------ */
+    header {
+      background-color: #1f1f1f;
+      padding: 15px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    header nav {
+      margin-top: 10px;
+    }
+
+    header nav a {
+      margin: 0 10px;
+      font-weight: bold;
+    }
+
+    /* ------------------------------
+      Container
+    ------------------------------ */
+    .container {
+      max-width: 1000px;
+      margin: 20px auto;
+      padding: 0 15px;
+    }
+
+    /* ------------------------------
+      Tool Cards Grid
+    ------------------------------ */
+    .tool-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .tool-card {
+      flex: 1 1 calc(50% - 10px); /* 2 cards per row on desktop */
+      background-color: #1a1a1a;
+      padding: 12px 15px;
+      border-radius: 6px;
+      text-align: center;
+      transition: all 0.2s ease;
+    }
+
+    .tool-card a {
+      display: block;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .tool-card:hover {
+      background-color: #333;
+    }
+
+    .tool-card.highlight {
+      background-color: #2a2a2a;
+    }
+
+    /* ------------------------------
+      Categories
+    ------------------------------ */
+    .category {
+      margin-top: 20px;
+    }
+
     .category h3 {
       cursor: pointer;
       background-color: #222;
       color: #fff;
       padding: 10px;
       border-radius: 5px;
-      margin-top: 15px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      font-size: 18px;
+      transition: background 0.2s;
     }
 
-    .tool-list {
-      display: none;
+    .category h3:hover {
+      background-color: #333;
+    }
+
+    /* ------------------------------
+      Buttons & Inputs
+    ------------------------------ */
+    button {
+      padding: 10px 20px;
+      background-color: #0d6efd;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
       margin-top: 10px;
+      transition: all 0.2s ease;
     }
 
-    .tool-card {
-      background-color: #1a1a1a;
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    input[type="number"], input[type="text"], select {
       padding: 10px;
+      width: 100%;
+      max-width: 300px;
       margin: 5px 0;
       border-radius: 5px;
-    }
-
-    .tool-card a {
+      border: none;
+      outline: none;
+      background-color: #1a1a1a;
       color: #fff;
-      text-decoration: none;
     }
 
-    .tool-card a:hover {
-      text-decoration: underline;
+    input::placeholder {
+      color: #aaa;
     }
 
-    .highlight {
-      background-color: #333;
+    /* ------------------------------
+      Footer
+    ------------------------------ */
+    footer {
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+      background-color: #1f1f1f;
+      font-size: 14px;
+    }
+
+    /* ------------------------------
+      Responsive Design
+    ------------------------------ */
+    @media (max-width: 768px) {
+      .tool-card {
+        flex: 1 1 100%; /* Full width on tablets */
+      }
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 22px;
+      }
+
+      header nav a {
+        display: block;
+        margin: 5px 0;
+      }
+
+      .category h3 {
+        font-size: 16px;
+        padding: 8px;
+      }
+
+      button {
+        width: 100%;
+      }
+
+      input[type="number"], input[type="text"], select {
+        max-width: 100%;
+      }
     }
   </style>
 </head>
@@ -60,12 +213,12 @@
 
   <!-- Highlight 10 High-Traffic Tools -->
   <h3>⭐ Most Popular Tools</h3>
-  <div class="tool-list" style="display:block;">
+  <div class="tool-list" style="display:flex; flex-wrap: wrap;">
     <div class="tool-card highlight"><a href="calculators/age-calculator.html">Age Calculator</a></div>
     <div class="tool-card highlight"><a href="calculators/bmi-calculator.html">BMI Calculator</a></div>
     <div class="tool-card highlight"><a href="calculators/date-difference-calculator.html">Date Difference Calculator</a></div>
     <div class="tool-card highlight"><a href="calculators/percentage-calculator.html">Percentage Calculator</a></div>
-    <div class="tool-card highlight"><a href="calculators/case-converter.html">Case-Converter</a></div>
+    <div class="tool-card highlight"><a href="calculators/case-converter.html">Case Converter</a></div>
     <div class="tool-card highlight"><a href="calculators/word-counter.html">Word Counter</a></div>
     <div class="tool-card highlight"><a href="calculators/character-counter.html">Character Counter</a></div>
     <div class="tool-card highlight"><a href="calculators/loan-calculator.html">Loan EMI Calculator</a></div>
@@ -73,7 +226,7 @@
     <div class="tool-card highlight"><a href="calculators/password-generator.html">Random Password Generator</a></div>
   </div>
 
-  <!-- Categories -->
+  <!-- Categories Example -->
   <div class="category">
     <h3 onclick="toggleTools('math-tools')">Math & Percentage Tools <i class="fas fa-chevron-down"></i></h3>
     <div id="math-tools" class="tool-list">
@@ -86,90 +239,14 @@
     </div>
   </div>
 
-  <div class="category">
-    <h3 onclick="toggleTools('date-tools')">Date & Time Tools <i class="fas fa-chevron-down"></i></h3>
-    <div id="date-tools" class="tool-list">
-      <div class="tool-card"><a href="calculators/age-calculator.html">Age Calculator</a></div>
-      <div class="tool-card"><a href="calculators/date-difference-calculator.html">Date Difference Calculator</a></div>
-      <div class="tool-card"><a href="calculators/countdown-timer.html">Countdown Timer</a></div>
-    </div>
-  </div>
-
-  <div class="category">
-    <h3 onclick="toggleTools('converter-tools')">Basic Converters <i class="fas fa-chevron-down"></i></h3>
-    <div id="converter-tools" class="tool-list">
-      <div class="tool-card"><a href="calculators/temperature-converter.html">Temperature Converter</a></div>
-      <div class="tool-card"><a href="calculators/length-converter.html">Length Converter</a></div>
-      <div class="tool-card"><a href="calculators/weight-converter.html">Weight Converter</a></div>
-      <div class="tool-card"><a href="calculators/speed-converter.html">Speed Converter</a></div>
-      <div class="tool-card"><a href="calculators/currency-converter.html">Currency Converter</a></div>
-    </div>
-  </div>
-
-  <div class="category">
-    <h3 onclick="toggleTools('health-tools')">Health Tools <i class="fas fa-chevron-down"></i></h3>
-    <div id="health-tools" class="tool-list">
-      <div class="tool-card"><a href="calculators/bmi-calculator.html">BMI Calculator</a></div>
-      <div class="tool-card"><a href="calculators/calorie-calculator.html">Calorie Calculator</a></div>
-      <div class="tool-card"><a href="calculators/water-intake-calculator.html">Water Intake Calculator</a></div>
-    </div>
-  </div>
-
-  <div class="category">
-    <h3 onclick="toggleTools('education-tools')">Education Tools <i class="fas fa-chevron-down"></i></h3>
-    <div id="education-tools" class="tool-list">
-      <div class="tool-card"><a href="calculators/typing-speed-test.html">Typing Speed Test</a></div>
-      <div class="tool-card"><a href="calculators/reading-time-calculator.html">Reading Time Calculator</a></div>
-    </div>
-  </div>
-
-  <div class="category">
-    <h3 onclick="toggleTools('text-tools')">Text & Productivity Tools <i class="fas fa-chevron-down"></i></h3>
-    <div id="text-tools" class="tool-list">
-      <div class="tool-card"><a href="calculators/word-counter.html">Word Counter</a></div>
-      <div class="tool-card"><a href="calculators/character-counter.html">Character Counter</a></div>
-      <div class="tool-card"><a href="calculators/case-converter.html">Case Converter</a></div>
-      <div class="tool-card"><a href="calculators/password-generator.html">Random Password Generator</a></div>
-    </div>
-  </div>
-
-  <div class="category">
-    <h3 onclick="toggleTools('seo-tools')">Website / SEO Tools <i class="fas fa-chevron-down"></i></h3>
-    <div id="seo-tools" class="tool-list">
-      <div class="tool-card"><a href="calculators/meta-tag-generator.html">Meta Tag Generator</a></div>
-      <div class="tool-card"><a href="calculators/utm-link-builder.html">UTM Link Builder</a></div>
-      <div class="tool-card"><a href="calculators/url-encoder.html">URL Encoder/Decoder</a></div>
-      <div class="tool-card"><a href="calculators/qr-code-generator.html">QR Code Generator</a></div>
-    </div>
-  </div>
-
-  <div class="category">
-    <h3 onclick="toggleTools('ai-tools')">AI-Assisted Tools (Simple JS API) <i class="fas fa-chevron-down"></i></h3>
-    <div id="ai-tools" class="tool-list">
-      <div class="tool-card"><a href="calculators/ai-text-rewriter.html">AI Text Rewriter</a></div>
-      <div class="tool-card"><a href="calculators/ai-grammar-fixer.html">AI Grammar Fixer</a></div>
-      <div class="tool-card"><a href="calculators/ai-summary.html">AI Summary Tool</a></div>
-    </div>
-  </div>
-
-  <div class="category">
-    <h3 onclick="toggleTools('advanced-tools')">Advanced Tools <i class="fas fa-chevron-down"></i></h3>
-    <div id="advanced-tools" class="tool-list">
-      <div class="tool-card"><a href="calculators/pdf-to-word.html">PDF to Word Converter</a></div>
-      <div class="tool-card"><a href="calculators/image-compressor.html">Image Compressor</a></div>
-      <div class="tool-card"><a href="calculators/image-to-base64.html">Image to Base64 Converter</a></div>
-      <div class="tool-card"><a href="calculators/online-notepad.html">Online Notepad</a></div>
-      <div class="tool-card"><a href="calculators/resume-builder.html">Resume Builder</a></div>
-      <div class="tool-card"><a href="calculators/invoice-generator.html">Invoice Generator</a></div>
-    </div>
-  </div>
+  <!-- Add more categories here using the same structure -->
 
 </div>
 
 <script>
 function toggleTools(id) {
   const el = document.getElementById(id);
-  el.style.display = (el.style.display === "none") ? "block" : "none";
+  el.style.display = (el.style.display === "none") ? "flex" : "none";
 }
 </script>
 
