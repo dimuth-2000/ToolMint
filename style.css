@@ -8,6 +8,19 @@ body {
   color: #fff;
 }
 
+h1, h2, h3 {
+  margin: 0;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 /* ------------------------------
   Header
 ------------------------------ */
@@ -27,7 +40,7 @@ header nav {
 }
 
 header nav a {
-  margin: 0 8px;
+  margin: 0 10px;
   font-weight: bold;
 }
 
@@ -41,7 +54,7 @@ header nav a {
 }
 
 /* ------------------------------
-  Tool Cards
+  Tool Cards Grid
 ------------------------------ */
 .tool-list {
   display: flex;
@@ -51,26 +64,26 @@ header nav a {
 }
 
 .tool-card {
-  flex: 1 1 calc(50% - 10px); /* 2 per row on desktop */
+  flex: 1 1 calc(50% - 10px); /* 2 cards per row on desktop */
   background-color: #1a1a1a;
   padding: 12px 15px;
   border-radius: 6px;
+  text-align: center;
   transition: all 0.2s ease;
 }
 
 .tool-card a {
   display: block;
   font-size: 16px;
+  font-weight: bold;
 }
 
 .tool-card:hover {
   background-color: #333;
 }
 
-/* Highlight Most Popular Tools */
 .tool-card.highlight {
   background-color: #2a2a2a;
-  font-weight: bold;
 }
 
 /* ------------------------------
@@ -115,7 +128,7 @@ button:hover {
   background-color: #0056b3;
 }
 
-input[type="number"], input[type="text"], input[type="password"], select {
+input[type="number"], input[type="text"], select {
   padding: 10px;
   width: 100%;
   max-width: 300px;
@@ -158,6 +171,12 @@ footer {
 /* ------------------------------
   Responsive Design
 ------------------------------ */
+@media (max-width: 1024px) {
+  .tool-card {
+    flex: 1 1 45%; /* Two cards per row */
+  }
+}
+
 @media (max-width: 768px) {
   .tool-card {
     flex: 1 1 100%; /* Full width on tablets */
@@ -183,7 +202,7 @@ footer {
     width: 100%;
   }
 
-  input[type="number"], input[type="text"], input[type="password"], select {
+  input[type="number"], input[type="text"], select {
     max-width: 100%;
   }
 }
