@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BMI Calculator - ToolMint</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+<header>
+  <h1 onclick="location.href='../index.html'" style="cursor:pointer;">ToolMint</h1>
+  <nav><a href="../index.html">Home</a></nav>
+</header>
+
+<div class="container">
+  <h2><i class="fas fa-heart"></i> BMI Calculator</h2>
+  <p>Calculate your Body Mass Index.</p>
+
+  <input type="number" id="weight" placeholder="Weight (kg)">
+  <input type="number" id="height" placeholder="Height (cm)">
+  <button onclick="calculateBMI()">Calculate BMI</button>
+
+  <div class="result" id="bmi-result"></div>
+</div>
+
+<script>
+function calculateBMI() {
+  const weight = parseFloat(document.getElementById('weight').value);
+  const heightCm = parseFloat(document.getElementById('height').value);
+  if (!weight || !heightCm) {
+    document.getElementById('bmi-result').innerText = "Please enter valid values.";
+    return;
+  }
+  const heightM = heightCm / 100;
+  const bmi = weight / (heightM * heightM);
+  document.getElementById('bmi-result').innerText = "Your BMI is " + bmi.toFixed(2);
+}
+</script>
+
+<footer>© 2025 ToolMint — All Rights Reserved</footer>
+</body>
+</html>
