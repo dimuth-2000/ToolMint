@@ -4,8 +4,23 @@
   <title>BMI Calculator - ToolMint</title>
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .bmi-category {
+      font-weight: bold;
+      padding: 10px;
+      border-radius: 5px;
+      margin-top: 10px;
+      color: white;
+    }
+    .underweight { background-color: #3498db; }
+    .normal { background-color: #2ecc71; }
+    .risk { background-color: #f1c40f; }
+    .overweight { background-color: #e67e22; }
+    .obesity { background-color: #e74c3c; }
+  </style>
 </head>
 <body>
+
 <header>
   <h1 onclick="location.href='../index.html'" style="cursor:pointer;">ToolMint</h1>
   <nav><a href="../index.html">Home</a></nav>
@@ -13,26 +28,102 @@
 
 <div class="container">
   <h2><i class="fas fa-heart"></i> BMI Calculator</h2>
-  <p>Calculate your Body Mass Index.</p>
+  <p>Calculate your Body Mass Index (BMI) in Metric or Imperial units.</p>
 
-  <input type="number" id="weight" placeholder="Weight (kg)">
-  <input type="number" id="height" placeholder="Height (cm)">
+  <!-- Unit Selector -->
+  <label for="unit">Select Unit:</label>
+  <select id="unit" onchange="updateInputs()">
+    <option value="metric">Metric (kg/cm)</option>
+    <option value="imperial">Imperial (lbs/ft+in)</option>
+  </select>
+
+  <!-- Metric Inputs -->
+  <div id="metric-inputs">
+    <input type="number" id="weight" placeholder="Weight (kg)">
+    <input type="number" id="height" placeholder="Height (cm)">
+  </div>
+
+  <!-- Imperial Inputs -->
+  <div id="imperial-inputs" style="display:none;">
+    <input type="number" id="weight-imp" placeholder="Weight (lbs)">
+    <input type="number" id="height-ft" placeholder="Height (ft)">
+    <input type="number" id="height-in" placeholder="Height (in)">
+  </div>
+
   <button onclick="calculateBMI()">Calculate BMI</button>
 
+  <!-- Result -->
   <div class="result" id="bmi-result"></div>
+  <div id="bmi-category" class="bmi-category"></div>
+
+  <!-- Formula Section -->
+  <h3>Formula</h3>
+  <p>
+    <strong>Metric:</strong> BMI = Weight (kg) ÷ (Height (m))²<br>
+    <strong>Imperial:</strong> BMI = [Weight (lbs) ÷ (Height (in))²] × 703
+  </p>
+
+  <!-- Example Section -->
+  <h3>Example</h3>
+  <p>
+    Metric: Weight = 70 kg, Height = 175 cm → BMI ≈ 22.86 (Normal weight)<br>
+    Imperial: Weight = 154 lbs, Height = 5 ft 9 in → BMI ≈ 22.73 (Normal weight)
+  </p>
 </div>
 
 <script>
+function updateInputs() {
+  const unit = document.getElementById("unit").value;
+  document.getElementById("metric-inputs").style.display = (unit === "metric") ? "block" : "none";
+  document.getElementById("imperial-inputs").style.display = (unit === "imperial") ? "block" : "none";
+}
+
 function calculateBMI() {
-  const weight = parseFloat(document.getElementById('weight').value);
-  const heightCm = parseFloat(document.getElementById('height').value);
-  if (!weight || !heightCm) {
-    document.getElementById('bmi-result').innerText = "Please enter valid values.";
-    return;
+  const unit = document.getElementById("unit").value;
+  let bmi = 0;
+
+  if (unit === "metric") {
+    const weight = parseFloat(document.getElementById("weight").value);
+    const heightCm = parseFloat(document.getElementById("height").value);
+    if (!weight || !heightCm) { 
+      document.getElementById("bmi-result").innerText = "Please enter valid values.";
+      document.getElementById("bmi-category").innerText = "";
+      return;
+    }
+    const heightM = heightCm / 100;
+    bmi = weight / (heightM * heightM);
+  } else {
+    const weightLbs = parseFloat(document.getElementById("weight-imp").value);
+    const heightFt = parseFloat(document.getElementById("height-ft").value);
+    const heightIn = parseFloat(document.getElementById("height-in").value);
+    if (!weightLbs || (!heightFt && !heightIn)) {
+      document.getElementById("bmi-result").innerText = "Please enter valid values.";
+      document.getElementById("bmi-category").innerText = "";
+      return;
+    }
+    const totalInches = (heightFt * 12) + heightIn;
+    bmi = (weightLbs / (totalInches * totalInches)) * 703;
   }
-  const heightM = heightCm / 100;
-  const bmi = weight / (heightM * heightM);
-  document.getElementById('bmi-result').innerText = "Your BMI is " + bmi.toFixed(2);
+
+  document.getElementById("bmi-result").innerText = "Your BMI is " + bmi.toFixed(2);
+
+  const categoryDiv = document.getElementById("bmi-category");
+  if (bmi < 18.5) {
+    categoryDiv.className = "bmi-category underweight";
+    categoryDiv.innerText = "Underweight: Your body is less than the normal recommended weight. Eat nutritious food with adequate exercises.";
+  } else if (bmi >= 18.5 && bmi <= 22.9) {
+    categoryDiv.className = "bmi-category normal";
+    categoryDiv.innerText = "Normal weight: Maintain your weight with adequate exercises.";
+  } else if (bmi >= 23 && bmi <= 24.9) {
+    categoryDiv.className = "bmi-category risk";
+    categoryDiv.innerText = "Risk to overweight: Try to reduce weight with exercises and correct diet.";
+  } else if (bmi >= 25 && bmi <= 29.9) {
+    categoryDiv.className = "bmi-category overweight";
+    categoryDiv.innerText = "Overweight: Your weight is above normal. Bring it down with exercises and diet.";
+  } else if (bmi >= 30) {
+    categoryDiv.className = "bmi-category obesity";
+    categoryDiv.innerText = "Obesity: High risk. Reduce weight with exercises, diet, and medical advice.";
+  }
 }
 </script>
 
