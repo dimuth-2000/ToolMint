@@ -1,58 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Percentage Calculator</title>
-<link rel="stylesheet" href="../style.css">
+  <title>Percentage Calculator - ToolMint</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-
 <body>
-
 <header>
-  <h1>ToolMint</h1>
-  <nav>
-    <a href="../index.html">Home</a>
-    <a href="../about.html">About</a>
-    <a href="../contact.html">Contact</a>
-  </nav>
+  <h1 onclick="location.href='../index.html'" style="cursor:pointer;">ToolMint</h1>
+  <nav><a href="../index.html">Home</a></nav>
 </header>
 
 <div class="container">
-  <h2>Percentage Calculator</h2>
-  <p>Find percentage values quickly and accurately.</p>
+  <h2><i class="fas fa-percent"></i> Percentage Calculator</h2>
+  <p>Calculate the percentage value.</p>
 
-  <input id="value" type="number" placeholder="Enter the value">
-  <input id="percent" type="number" placeholder="Enter percentage">
+  <input type="number" id="value" placeholder="Value">
+  <input type="number" id="total" placeholder="Total">
+  <button onclick="calculatePercentage()">Calculate</button>
 
-  <button onclick="calculate()">Calculate</button>
-
-  <div class="result" id="output"></div>
+  <div class="result" id="percentage-result"></div>
 
   <h3>Formula</h3>
-  <p>Percentage = (Value × Percent) ÷ 100</p>
+  <p>Percentage = (Value ÷ Total) × 100</p>
 
   <h3>Example</h3>
-  <p>If value = 250 and percent = 10% → Result = 25</p>
+  <p>Value = 50, Total = 200 → (50 ÷ 200) × 100 = 25%</p>
 </div>
 
-<footer>
-  © 2025 ToolMint
-</footer>
-
 <script>
-function calculate() {
-  const value = document.getElementById('value').value;
-  const percent = document.getElementById('percent').value;
-
-  if (value && percent) {
-    const result = (value * percent) / 100;
-    document.getElementById('output').innerText =
-      percent + "% of " + value + " = " + result;
-  } else {
-    document.getElementById('output').innerText =
-      "Please enter both fields.";
+function calculatePercentage() {
+  const value = parseFloat(document.getElementById('value').value);
+  const total = parseFloat(document.getElementById('total').value);
+  if (!value || !total) {
+    document.getElementById('percentage-result').innerText = "Please enter valid numbers.";
+    return;
   }
+  const result = (value / total) * 100;
+  document.getElementById('percentage-result').innerText = "Percentage: " + result.toFixed(2) + "%";
 }
 </script>
 
+<footer>© 2025 ToolMint — All Rights Reserved</footer>
 </body>
 </html>
