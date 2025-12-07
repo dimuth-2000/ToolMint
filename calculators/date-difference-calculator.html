@@ -20,6 +20,12 @@
   <button onclick="calculateDateDifference()">Calculate Difference</button>
 
   <div class="result" id="date-result"></div>
+
+  <h3>Formula</h3>
+  <p>Difference (days) = |End Date − Start Date|</p>
+
+  <h3>Example</h3>
+  <p>Start: 01-01-2025, End: 07-12-2025 → 340 days</p>
 </div>
 
 <script>
@@ -31,7 +37,7 @@ function calculateDateDifference() {
     return;
   }
   const diff = Math.abs(end - start);
-  const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+  const days = Math.ceil(diff / (1000*60*60*24));
   document.getElementById('date-result').innerText = "Difference: " + days + " days";
 }
 </script>
