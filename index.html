@@ -3,198 +3,8 @@
 <head>
   <title>ToolMint – Online Calculators</title>
   <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    /* ------------------------------
-      Body & Typography
-    ------------------------------ */
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #121212;
-      color: #fff;
-    }
-
-    h1, h2, h3 {
-      margin: 0;
-    }
-
-    a {
-      color: #fff;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    /* ------------------------------
-      Header
-    ------------------------------ */
-    header {
-      background-color: #1f1f1f;
-      padding: 15px 20px;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 26px;
-      cursor: pointer;
-    }
-
-    header nav {
-      margin-top: 10px;
-    }
-
-    header nav a {
-      margin: 0 10px;
-      font-weight: bold;
-    }
-
-    /* ------------------------------
-      Container
-    ------------------------------ */
-    .container {
-      max-width: 1000px;
-      margin: 20px auto;
-      padding: 0 15px;
-    }
-
-    /* ------------------------------
-      Tool Cards Grid
-    ------------------------------ */
-    .tool-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 10px;
-    }
-
-    .tool-card {
-      flex: 1 1 calc(50% - 10px); /* 2 cards per row on desktop */
-      background-color: #1a1a1a;
-      padding: 12px 15px;
-      border-radius: 6px;
-      text-align: center;
-      transition: all 0.2s ease;
-    }
-
-    .tool-card a {
-      display: block;
-      font-size: 16px;
-      font-weight: bold;
-    }
-
-    .tool-card:hover {
-      background-color: #333;
-    }
-
-    .tool-card.highlight {
-      background-color: #2a2a2a;
-    }
-
-    /* ------------------------------
-      Categories
-    ------------------------------ */
-    .category {
-      margin-top: 20px;
-    }
-
-    .category h3 {
-      cursor: pointer;
-      background-color: #222;
-      color: #fff;
-      padding: 10px;
-      border-radius: 5px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 18px;
-      transition: background 0.2s;
-    }
-
-    .category h3:hover {
-      background-color: #333;
-    }
-
-    /* ------------------------------
-      Buttons & Inputs
-    ------------------------------ */
-    button {
-      padding: 10px 20px;
-      background-color: #0d6efd;
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      margin-top: 10px;
-      transition: all 0.2s ease;
-    }
-
-    button:hover {
-      background-color: #0056b3;
-    }
-
-    input[type="number"], input[type="text"], select {
-      padding: 10px;
-      width: 100%;
-      max-width: 300px;
-      margin: 5px 0;
-      border-radius: 5px;
-      border: none;
-      outline: none;
-      background-color: #1a1a1a;
-      color: #fff;
-    }
-
-    input::placeholder {
-      color: #aaa;
-    }
-
-    /* ------------------------------
-      Footer
-    ------------------------------ */
-    footer {
-      text-align: center;
-      padding: 15px;
-      margin-top: 40px;
-      background-color: #1f1f1f;
-      font-size: 14px;
-    }
-
-    /* ------------------------------
-      Responsive Design
-    ------------------------------ */
-    @media (max-width: 768px) {
-      .tool-card {
-        flex: 1 1 100%; /* Full width on tablets */
-      }
-    }
-
-    @media (max-width: 480px) {
-      header h1 {
-        font-size: 22px;
-      }
-
-      header nav a {
-        display: block;
-        margin: 5px 0;
-      }
-
-      .category h3 {
-        font-size: 16px;
-        padding: 8px;
-      }
-
-      button {
-        width: 100%;
-      }
-
-      input[type="number"], input[type="text"], select {
-        max-width: 100%;
-      }
-    }
-  </style>
 </head>
 <body>
 
@@ -211,46 +21,40 @@
   <h2>All Tools & Calculators</h2>
   <p>Fast, accurate, easy-to-use calculators for everyday tasks.</p>
 
-  <!-- Highlight 10 High-Traffic Tools -->
-  <h3>⭐ Most Popular Tools</h3>
-  <div class="tool-list" style="display:flex; flex-wrap: wrap;">
-    <div class="tool-card highlight"><a href="calculators/age-calculator.html">Age Calculator</a></div>
-    <div class="tool-card highlight"><a href="calculators/bmi-calculator.html">BMI Calculator</a></div>
-    <div class="tool-card highlight"><a href="calculators/date-difference-calculator.html">Date Difference Calculator</a></div>
-    <div class="tool-card highlight"><a href="calculators/percentage-calculator.html">Percentage Calculator</a></div>
-    <div class="tool-card highlight"><a href="calculators/case-converter.html">Case Converter</a></div>
-    <div class="tool-card highlight"><a href="calculators/word-counter.html">Word Counter</a></div>
-    <div class="tool-card highlight"><a href="calculators/character-counter.html">Character Counter</a></div>
-    <div class="tool-card highlight"><a href="calculators/loan-calculator.html">Loan EMI Calculator</a></div>
-    <div class="tool-card highlight"><a href="calculators/temperature-converter.html">Temperature Converter</a></div>
-    <div class="tool-card highlight"><a href="calculators/password-generator.html">Random Password Generator</a></div>
+  <!-- MOST POPULAR 10 TOOLS FIRST -->
+  <h3>Most Popular Tools</h3>
+  <div class="tool-grid">
+    <div class="tool-card"><a href="calculators/age-calculator.html"><i class="fas fa-calendar-alt"></i> Age Calculator</a></div>
+    <div class="tool-card"><a href="calculators/bmi-calculator.html"><i class="fas fa-heart"></i> BMI Calculator</a></div>
+    <div class="tool-card"><a href="calculators/date-difference-calculator.html"><i class="fas fa-clock"></i> Date Difference Calculator</a></div>
+    <div class="tool-card"><a href="calculators/percentage-calculator.html"><i class="fas fa-percent"></i> Percentage Calculator</a></div>
+    <div class="tool-card"><a href="calculators/case-converter.html"><i class="fas fa-tags"></i> Case-Converter</a></div>
+    <div class="tool-card"><a href="calculators/word-counter.html"><i class="fas fa-file-word"></i> Word Counter</a></div>
+    <div class="tool-card"><a href="calculators/character-counter.html"><i class="fas fa-keyboard"></i> Character Counter</a></div>
+    <div class="tool-card"><a href="calculators/loan-calculator.html"><i class="fas fa-money-bill-wave"></i> Loan EMI Calculator</a></div>
+    <div class="tool-card"><a href="calculators/temperature-converter.html"><i class="fas fa-thermometer-half"></i> Temperature Converter</a></div>
+    <div class="tool-card"><a href="calculators/nic-calculator.html"><i class="fas fa-id-card"></i> Sri Lankan NIC Calculator</a></div>
   </div>
 
-  <!-- Categories Example -->
-  <div class="category">
-    <h3 onclick="toggleTools('math-tools')">Math & Percentage Tools <i class="fas fa-chevron-down"></i></h3>
-    <div id="math-tools" class="tool-list">
-      <div class="tool-card"><a href="calculators/percentage-calculator.html">Percentage Calculator</a></div>
-      <div class="tool-card"><a href="calculators/discount-calculator.html">Discount Calculator</a></div>
-      <div class="tool-card"><a href="calculators/profit-loss-calculator.html">Profit/Loss Calculator</a></div>
-      <div class="tool-card"><a href="calculators/simple-interest-calculator.html">Simple Interest Calculator</a></div>
-      <div class="tool-card"><a href="calculators/compound-interest-calculator.html">Compound Interest Calculator</a></div>
-      <div class="tool-card"><a href="calculators/loan-calculator.html">Loan EMI Calculator</a></div>
-    </div>
+  <!-- CATEGORIES BELOW -->
+  <h3>Categories</h3>
+  <div class="categories">
+    <div class="tool-card"><i class="fas fa-calculator"></i> Math & Percentage Tools</div>
+    <div class="tool-card"><i class="fas fa-calendar-alt"></i> Date & Time Tools</div>
+    <div class="tool-card"><i class="fas fa-exchange-alt"></i> Basic Converters</div>
+    <div class="tool-card"><i class="fas fa-heart"></i> Health Tools</div>
+    <div class="tool-card"><i class="fas fa-book"></i> Education Tools</div>
+    <div class="tool-card"><i class="fas fa-keyboard"></i> Text & Productivity Tools</div>
+    <div class="tool-card"><i class="fas fa-globe"></i> Website/SEO Tools</div>
+    <div class="tool-card"><i class="fas fa-robot"></i> AI-Assisted Tools (Simple JS API)</div>
+    <div class="tool-card"><i class="fas fa-star"></i> Advanced Tools</div>
   </div>
-
-  <!-- Add more categories here using the same structure -->
 
 </div>
 
-<script>
-function toggleTools(id) {
-  const el = document.getElementById(id);
-  el.style.display = (el.style.display === "none") ? "flex" : "none";
-}
-</script>
-
-<footer>© 2025 ToolMint — All Rights Reserved</footer>
+<footer>
+  © 2025 ToolMint — All Rights Reserved
+</footer>
 
 </body>
 </html>
