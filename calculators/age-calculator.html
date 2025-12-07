@@ -18,6 +18,13 @@
   <h2><i class="fas fa-calendar-alt"></i> Age Calculator</h2>
   <p>Enter your birth date to calculate your age.</p>
 
+  <!-- Input -->
+  <input type="date" id="birthdate">
+  <button onclick="calculateAge()">Calculate Age</button>
+
+  <!-- Result -->
+  <div class="result" id="age-result"></div>
+
   <!-- Formula -->
   <h3>Formula</h3>
   <p>Age = Current Year − Birth Year  
@@ -27,13 +34,6 @@
   <h3>Example</h3>
   <p>If your birth date is 15-03-2000 and today is 07-12-2025:  
   Age = 2025 − 2000 = 25 (since birthday passed this year)</p>
-
-  <!-- Input -->
-  <input type="date" id="birthdate">
-  <button onclick="calculateAge()">Calculate Age</button>
-
-  <!-- Result -->
-  <div class="result" id="age-result"></div>
 </div>
 
 <script>
