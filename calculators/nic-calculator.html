@@ -1,109 +1,93 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Sri Lankan NIC Birthdate Calculator</title>
+  <title>Sri Lankan NIC Calculator - ToolMint</title>
   <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .result { margin-top: 15px; padding: 10px; background-color: #1a1a1a; border-radius: 5px; color: #fff; }
+  </style>
 </head>
 <body>
 
 <header>
-  <h1>ToolMint</h1>
-  <nav>
-    <a href="../index.html">Home</a>
-    <a href="../about.html">About</a>
-    <a href="../contact.html">Contact</a>
-  </nav>
+  <h1 onclick="location.href='../index.html'" style="cursor:pointer;">ToolMint</h1>
+  <nav><a href="../index.html">Home</a></nav>
 </header>
 
 <div class="container">
-  <h2>Sri Lankan NIC Birthdate Calculator</h2>
-  <p>Enter your NIC (Old or New) to get Birth Year, Month, Day, and Gender.</p>
+  <h2><i class="fas fa-id-card"></i> Sri Lankan NIC Calculator</h2>
+  <p>Enter an old or new NIC to extract birth year, month, day and gender.</p>
 
-  <input id="nic" type="text" placeholder="Enter NIC">
+  <input type="text" id="nic" placeholder="Enter NIC (Old: 85104275V, New: 198554201590)">
   <button onclick="calculateNIC()">Check NIC</button>
-  <button onclick="goHome()">Back to Home</button>
 
-  <div class="result" id="output"></div>
+  <div class="result" id="nic-result"></div>
 
-  <h3>Example & Formula</h3>
-  <p><strong>Old NIC (Before 2016):</strong> <code>85104275V</code>  
-  <br>Format: <em>YY DDD NN C</em> → YY = 85 (birth year 1985), DDD = 104 (day of year), NN = 275 (serial), C = V (check letter)</p>
+  <h3>Formula</h3>
+  <p>
+    <strong>Old NIC (9 digits + letter):</strong><br>
+    YYYY = 1900 + first 2 digits (YY)<br>
+    DDD = 3 digits after YY (add 500 for females)<br>
+    Month & Day = Convert DDD to month/day<br>
+    Gender = Male if DDD ≤ 366, Female if DDD > 500<br>
+    <strong>New NIC (12 digits):</strong> Same logic with YYYY (4 digits), DDD, Serial, Check digit
+  </p>
 
-  <p><strong>New NIC (Post-2016):</strong> <code>198554201590</code>  
-  <br>Format: <em>YYYY DDD NN N</em> → YYYY = 1985, DDD = 104 (day of year), NN = 275 (serial), N = final digit</p>
+  <h3>Example</h3>
+  <p>
+    Old NIC: 85104275V → Year = 1985, DDD = 104 → 14 April, Male<br>
+    New NIC: 198554201590 → Year = 1985, DDD = 542 → 1 October, Female
+  </p>
 </div>
-
-<footer>
-  © 2025 ToolMint
-</footer>
 
 <script>
 function calculateNIC() {
-  const nicInput = document.getElementById("nic").value.trim().toUpperCase();
-  if (!nicInput) {
-    document.getElementById("output").innerHTML = "Please enter an NIC number.";
+  const nic = document.getElementById('nic').value.trim();
+  if (!nic) { 
+    document.getElementById('nic-result').innerText = "Please enter a NIC.";
     return;
   }
 
   let year, dayOfYear, gender, month, day;
-  let type = "";
 
-  // Determine NIC type
-  if (/^\d{9}[VX]$/.test(nicInput)) { // Old NIC (10 chars)
-    type = "Old NIC";
-    year = 1900 + parseInt(nicInput.substring(0, 2));
-    dayOfYear = parseInt(nicInput.substring(2, 5));
-  } else if (/^\d{12}$/.test(nicInput)) { // New NIC (12 digits)
-    type = "New NIC";
-    year = parseInt(nicInput.substring(0, 4));
-    dayOfYear = parseInt(nicInput.substring(4, 7));
+  if (/^\d{9}[VX]$/i.test(nic)) { // Old NIC
+    year = 1900 + parseInt(nic.substring(0,2));
+    dayOfYear = parseInt(nic.substring(2,5));
+    gender = dayOfYear > 500 ? "Female" : "Male";
+    if (dayOfYear > 500) dayOfYear -= 500;
+  } else if (/^\d{12}$/.test(nic)) { // New NIC
+    year = parseInt(nic.substring(0,4));
+    dayOfYear = parseInt(nic.substring(4,7));
+    gender = dayOfYear > 500 ? "Female" : "Male";
+    if (dayOfYear > 500) dayOfYear -= 500;
   } else {
-    document.getElementById("output").innerHTML = "Invalid NIC format.";
+    document.getElementById('nic-result').innerText = "Invalid NIC format!";
     return;
   }
 
-  // Gender
-  gender = dayOfYear > 500 ? "Female" : "Male";
-  if (dayOfYear > 500) dayOfYear -= 500;
-
-  // Leap year check
-  const isLeap = (year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0));
-  const monthDays = [31, isLeap ? 29 : 28,31,30,31,30,31,31,30,31,30,31];
-
-  // Calculate month and day
-  let remainingDays = dayOfYear;
-  for (let i = 0; i < 12; i++) {
-    if (remainingDays > monthDays[i]) {
-      remainingDays -= monthDays[i];
-    } else {
-      month = i + 1; // January = 1
-      day = remainingDays;
-      break;
-    }
+  // Convert dayOfYear to month and day
+  const monthDays = [31,28,31,30,31,30,31,31,30,31,30,31];
+  if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) monthDays[1] = 29; // Leap year
+  let m = 0;
+  while(dayOfYear > monthDays[m]) {
+    dayOfYear -= monthDays[m];
+    m++;
   }
+  month = m + 1;
+  day = dayOfYear;
 
-  // Output
-  let outputHTML = `<strong>${type} Detected</strong><br>
-                    Birth Year: ${year}<br>
-                    Birth Month: ${month}<br>
-                    Birth Day: ${day}<br>
-                    Gender: ${gender}<br>
-                    Day of Year: ${dayOfYear}`;
-
-  // For old NIC, show approximate new NIC
-  if (type === "Old NIC") {
-    const newNIC = year + nicInput.substring(2, 9) + "0";
-    outputHTML += `<br>Equivalent New NIC (approx.): ${newNIC}`;
-  }
-
-  document.getElementById("output").innerHTML = outputHTML;
-}
-
-// Go back to ToolMint homepage
-function goHome() {
-  window.location.href = "../index.html";
+  document.getElementById('nic-result').innerHTML = `
+    <strong>NIC:</strong> ${nic}<br>
+    <strong>Year of Birth:</strong> ${year}<br>
+    <strong>Month:</strong> ${month}<br>
+    <strong>Day:</strong> ${day}<br>
+    <strong>Gender:</strong> ${gender}
+  `;
 }
 </script>
+
+<footer>© 2025 ToolMint — All Rights Reserved</footer>
 
 </body>
 </html>
