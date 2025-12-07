@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Case Converter - ToolMint</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .result { margin-top: 15px; padding: 10px; background-color: #1a1a1a; border-radius: 5px; color: #fff; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 onclick="location.href='../index.html'" style="cursor:pointer;">ToolMint</h1>
+  <nav><a href="../index.html">Home</a></nav>
+</header>
+
+<div class="container">
+  <h2><i class="fas fa-font"></i> Case Converter</h2>
+  <p>Convert your text to UPPERCASE, lowercase, Title Case, or Sentence case.</p>
+
+  <textarea id="input-text" rows="5" placeholder="Enter text here"></textarea>
+
+  <label for="case-type">Select Conversion:</label>
+  <select id="case-type">
+    <option value="uppercase">UPPERCASE</option>
+    <option value="lowercase">lowercase</option>
+    <option value="titlecase">Title Case</option>
+    <option value="sentencecase">Sentence case</option>
+  </select>
+
+  <button onclick="convertCase()">Convert</button>
+
+  <div class="result" id="case-result"></div>
+
+  <h3>Formula</h3>
+  <p>
+    <strong>UPPERCASE:</strong> Convert all letters to capital letters.<br>
+    <strong>lowercase:</strong> Convert all letters to small letters.<br>
+    <strong>Title Case:</strong> Capitalize the first letter of each word.<br>
+    <strong>Sentence Case:</strong> Capitalize the first letter of each sentence.
+  </p>
+
+  <h3>Example</h3>
+  <p>
+    Input: "hello world. this is toolmint!"<br>
+    UPPERCASE → "HELLO WORLD. THIS IS TOOLMINT!"<br>
+    lowercase → "hello world. this is toolmint!"<br>
+    Title Case → "Hello World. This Is Toolmint!"<br>
+    Sentence case → "Hello world. This is toolmint!"
+  </p>
+</div>
+
+<script>
+function convertCase() {
+  let text = document.getElementById("input-text").value;
+  const type = document.getElementById("case-type").value;
+
+  if (!text) {
+    document.getElementById("case-result").innerText = "Please enter some text.";
+    return;
+  }
+
+  if (type === "uppercase") {
+    text = text.toUpperCase();
+  } else if (type === "lowercase") {
+    text = text.toLowerCase();
+  } else if (type === "titlecase") {
+    text = text.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+  } else if (type === "sentencecase") {
+    text = text.toLowerCase().replace(/(^\s*\w|[.!?]\s*\w)/g, c => c.toUpperCase());
+  }
+
+  document.getElementById("case-result").innerText = text;
+}
+</script>
+
+<footer>© 2025 ToolMint — All Rights Reserved</footer>
+
+</body>
+</html>
