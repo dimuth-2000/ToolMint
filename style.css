@@ -1,211 +1,191 @@
-/* ===========================
-   ToolMint Dark Modern Theme
-   =========================== */
-
-/* GENERAL RESET */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Arial', sans-serif;
-}
-
-/* BODY */
+/* ------------------------------
+  General Body & Typography
+------------------------------ */
 body {
+  margin: 0;
+  font-family: Arial, sans-serif;
   background-color: #121212;
-  color: #f0f0f0;
-  line-height: 1.6;
+  color: #fff;
 }
 
-/* HEADER */
-header {
-  background-color: #1f1f1f;
-  padding: 15px 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 100;
+h1, h2, h3 {
+  margin: 0;
 }
 
-header h1 {
-  font-size: 1.8em;
-  color: #00bfff;
-  cursor: pointer;
-}
-
-header nav a {
-  color: #f0f0f0;
-  margin-left: 20px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-header nav a:hover {
-  color: #00bfff;
-}
-
-/* CONTAINER */
-.container {
-  max-width: 1000px;
-  margin: 30px auto;
-  padding: 20px;
-  background-color: #1e1e1e;
-  border-radius: 10px;
-}
-
-/* HEADINGS */
-h2 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: #00bfff;
-}
-
-h3 {
-  color: #00bfff;
-  margin-top: 20px;
-}
-
-/* PARAGRAPHS */
-p {
-  margin-bottom: 15px;
-}
-
-/* TOOL CARDS */
-.tool-card {
-  display: inline-block;
-  background-color: #2a2a2a;
-  margin: 10px;
-  padding: 15px 20px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s;
-  min-width: 180px;
-  text-align: center;
-}
-
-.tool-card a {
-  color: #f0f0f0;
-  text-decoration: none;
-  font-weight: bold;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.tool-card i {
-  margin-right: 8px; /* space between icon and text */
-  color: #00bfff;    /* icon color */
-  font-size: 1.2em;
-}
-
-.tool-card:hover {
-  background-color: #00bfff;
-  color: #121212;
-}
-
-.tool-card:hover i {
-  color: #121212;
-}
-
-/* CATEGORIES GRID */
-.categories {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 30px;
-}
-
-/* MOST POPULAR TOOLS GRID */
-.tool-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-/* INPUT FIELDS */
-input[type="text"],
-input[type="number"],
-input[type="date"],
-input[type="password"] {
-  padding: 10px;
-  margin: 5px 0;
-  border-radius: 5px;
-  border: none;
-  width: 60%;
-  max-width: 300px;
-}
-
-/* BUTTONS */
-button {
-  padding: 10px 20px;
-  margin: 5px 0;
-  border-radius: 5px;
-  border: none;
-  background-color: #00bfff;
-  color: #121212;
-  cursor: pointer;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-button:hover {
-  background-color: #0080c0;
-}
-
-/* RESULT BOX */
-.result {
-  margin-top: 15px;
-  padding: 10px;
-  background-color: #2a2a2a;
-  border-radius: 5px;
-  word-wrap: break-word;
-}
-
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 15px;
-  background-color: #1f1f1f;
-  margin-top: 30px;
-  font-size: 0.9em;
-  color: #888;
-}
-
-/* LINKS */
 a {
-  transition: 0.3s;
+  color: #fff;
+  text-decoration: none;
 }
 
 a:hover {
-  color: #00bfff;
+  text-decoration: underline;
 }
 
-/* RESPONSIVE DESIGN */
-@media screen and (max-width: 768px) {
-  .tool-card {
-    min-width: 140px;
-    margin: 8px;
-    padding: 12px 15px;
-  }
-
-  input[type="text"],
-  input[type="number"],
-  input[type="date"],
-  input[type="password"] {
-    width: 90%;
-  }
+/* ------------------------------
+  Header
+------------------------------ */
+header {
+  background-color: #1f1f1f;
+  padding: 20px;
+  text-align: center;
 }
 
-@media screen and (max-width: 480px) {
-  header {
-    flex-direction: column;
-    align-items: flex-start;
+header h1 {
+  font-size: 28px;
+  cursor: pointer;
+}
+
+header nav {
+  margin-top: 10px;
+}
+
+header nav a {
+  margin: 0 10px;
+  font-weight: bold;
+}
+
+/* ------------------------------
+  Container
+------------------------------ */
+.container {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 0 15px;
+}
+
+/* ------------------------------
+  Tool Cards
+------------------------------ */
+.tool-card {
+  background-color: #1a1a1a;
+  padding: 12px 15px;
+  margin: 5px 0;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.tool-card:hover {
+  background-color: #333;
+}
+
+.tool-card a {
+  display: block;
+  font-size: 16px;
+}
+
+/* Highlight Most Popular Tools */
+.tool-card.highlight {
+  background-color: #2a2a2a;
+  font-weight: bold;
+}
+
+/* ------------------------------
+  Categories
+------------------------------ */
+.category {
+  margin-top: 20px;
+}
+
+.category h3 {
+  cursor: pointer;
+  background-color: #222;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  transition: background 0.2s;
+}
+
+.category h3:hover {
+  background-color: #333;
+}
+
+.tool-list {
+  display: none;
+  margin-top: 10px;
+}
+
+/* ------------------------------
+  Buttons
+------------------------------ */
+button {
+  padding: 10px 20px;
+  background-color: #0d6efd;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* ------------------------------
+  Inputs
+------------------------------ */
+input[type="number"], input[type="text"], input[type="password"], select {
+  padding: 10px;
+  width: 100%;
+  max-width: 300px;
+  margin: 5px 0;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  background-color: #1a1a1a;
+  color: #fff;
+}
+
+input::placeholder {
+  color: #aaa;
+}
+
+/* ------------------------------
+  Results / Output Boxes
+------------------------------ */
+.result {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #1a1a1a;
+  border-radius: 5px;
+  color: #fff;
+  font-family: monospace;
+  word-break: break-all;
+}
+
+/* ------------------------------
+  Footer
+------------------------------ */
+footer {
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+  background-color: #1f1f1f;
+  font-size: 14px;
+}
+
+/* ------------------------------
+  Responsive
+------------------------------ */
+@media (max-width: 600px) {
+  .container {
+    padding: 0 10px;
   }
 
-  header nav {
-    margin-top: 10px;
+  .tool-card a {
+    font-size: 14px;
+  }
+
+  header h1 {
+    font-size: 24px;
+  }
+
+  button {
+    width: 100%;
   }
 }
