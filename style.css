@@ -1,5 +1,5 @@
 /* ------------------------------
-  General Body & Typography
+  Body & Typography
 ------------------------------ */
 body {
   margin: 0;
@@ -8,30 +8,17 @@ body {
   color: #fff;
 }
 
-h1, h2, h3 {
-  margin: 0;
-}
-
-a {
-  color: #fff;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
 /* ------------------------------
   Header
 ------------------------------ */
 header {
   background-color: #1f1f1f;
-  padding: 20px;
+  padding: 15px 20px;
   text-align: center;
 }
 
 header h1 {
-  font-size: 28px;
+  font-size: 26px;
   cursor: pointer;
 }
 
@@ -40,7 +27,7 @@ header nav {
 }
 
 header nav a {
-  margin: 0 10px;
+  margin: 0 8px;
   font-weight: bold;
 }
 
@@ -56,21 +43,28 @@ header nav a {
 /* ------------------------------
   Tool Cards
 ------------------------------ */
-.tool-card {
-  background-color: #1a1a1a;
-  padding: 12px 15px;
-  margin: 5px 0;
-  border-radius: 6px;
-  transition: all 0.2s ease;
+.tool-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
 }
 
-.tool-card:hover {
-  background-color: #333;
+.tool-card {
+  flex: 1 1 calc(50% - 10px); /* 2 per row on desktop */
+  background-color: #1a1a1a;
+  padding: 12px 15px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
 }
 
 .tool-card a {
   display: block;
   font-size: 16px;
+}
+
+.tool-card:hover {
+  background-color: #333;
 }
 
 /* Highlight Most Popular Tools */
@@ -103,13 +97,8 @@ header nav a {
   background-color: #333;
 }
 
-.tool-list {
-  display: none;
-  margin-top: 10px;
-}
-
 /* ------------------------------
-  Buttons
+  Buttons & Inputs
 ------------------------------ */
 button {
   padding: 10px 20px;
@@ -126,9 +115,6 @@ button:hover {
   background-color: #0056b3;
 }
 
-/* ------------------------------
-  Inputs
------------------------------- */
 input[type="number"], input[type="text"], input[type="password"], select {
   padding: 10px;
   width: 100%;
@@ -155,7 +141,7 @@ input::placeholder {
   border-radius: 5px;
   color: #fff;
   font-family: monospace;
-  word-break: break-all;
+  word-break: break-word;
 }
 
 /* ------------------------------
@@ -170,22 +156,34 @@ footer {
 }
 
 /* ------------------------------
-  Responsive
+  Responsive Design
 ------------------------------ */
-@media (max-width: 600px) {
-  .container {
-    padding: 0 10px;
+@media (max-width: 768px) {
+  .tool-card {
+    flex: 1 1 100%; /* Full width on tablets */
   }
+}
 
-  .tool-card a {
-    font-size: 14px;
-  }
-
+@media (max-width: 480px) {
   header h1 {
-    font-size: 24px;
+    font-size: 22px;
+  }
+
+  header nav a {
+    display: block;
+    margin: 5px 0;
+  }
+
+  .category h3 {
+    font-size: 16px;
+    padding: 8px;
   }
 
   button {
     width: 100%;
+  }
+
+  input[type="number"], input[type="text"], input[type="password"], select {
+    max-width: 100%;
   }
 }
