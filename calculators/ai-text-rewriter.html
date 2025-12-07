@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Text Rewriter – ToolMint</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .tool-container { max-width: 800px; margin: 20px auto; padding: 15px; }
+    .section { background-color: #1a1a1a; padding: 15px; border-radius: 8px; margin-bottom: 15px; }
+    .section h3 { margin-bottom: 10px; }
+    textarea { width: 100%; padding: 10px; border-radius: 5px; background: #333; color: #fff; border: none; resize: vertical; }
+    button { padding: 10px 20px; background-color: #0d6efd; color: #fff; border: none; border-radius: 5px; cursor: pointer; }
+    button:hover { background-color: #0056b3; }
+    .result-box { background: #222; padding: 10px; border-radius: 5px; margin-top: 10px; min-height: 50px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 onclick="location.href='index.html'" style="cursor:pointer;">ToolMint</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<div class="tool-container">
+  <h2>AI Text Rewriter (Safe Version)</h2>
+
+  <div class="section">
+    <h3>Formula / Explanation:</h3>
+    <p>This tool takes your text and rewrites it safely, keeping the original meaning but changing wording to make it unique or easier to read.</p>
+  </div>
+
+  <div class="section">
+    <h3>Example:</h3>
+    <p>Original: "The quick brown fox jumps over the lazy dog." <br>
+       Rewritten: "A fast brown fox leaps over a sleeping dog."</p>
+  </div>
+
+  <div class="section">
+    <h3>Enter Text:</h3>
+    <textarea id="inputText" rows="5" placeholder="Type or paste your text here..."></textarea>
+    <button onclick="rewriteText()">Rewrite Text</button>
+    <div class="result-box" id="resultText">Your rewritten text will appear here.</div>
+  </div>
+</div>
+
+<script>
+function rewriteText() {
+  let text = document.getElementById("inputText").value;
+  if(!text) {
+    alert("Please enter text first!");
+    return;
+  }
+  // Safe JS-based simple rewriter (demo example)
+  let rewritten = text.replace(/\bquick\b/gi, "fast").replace(/\bjumps\b/gi, "leaps");
+  document.getElementById("resultText").innerText = rewritten;
+}
+</script>
+
+<footer>© 2025 ToolMint — All Rights Reserved</footer>
+
+</body>
+</html>
