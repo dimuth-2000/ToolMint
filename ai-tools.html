@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI-Assisted Tools – ToolMint</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body { background-color: #121212; color: #fff; font-family: Arial, sans-serif; }
+    header { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; background: #1f1f1f; }
+    header h1 { cursor: pointer; }
+    header nav a { color: #fff; margin-left: 15px; text-decoration: none; }
+    header nav a:hover { text-decoration: underline; }
+    .container { max-width: 1000px; margin: 20px auto; padding: 0 15px; }
+    h2 { margin-bottom: 10px; }
+    .tool-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 15px; }
+    .tool-card { background-color: #1a1a1a; padding: 20px; border-radius: 10px; display: flex; align-items: center; gap: 10px; cursor: pointer; transition: 0.3s; }
+    .tool-card i { font-size: 1.5em; }
+    .tool-card:hover { background-color: #333; }
+    footer { text-align: center; padding: 15px; background: #1f1f1f; margin-top: 30px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 onclick="location.href='index.html'">ToolMint</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<div class="container">
+  <h2>AI-Assisted Tools (Simple JS API)</h2>
+  <p>Safe, beginner-friendly AI tools to rewrite text, fix grammar, and summarize content. Fully browser-based with no API required.</p>
+
+  <div class="tool-grid">
+    <div class="tool-card" onclick="location.href='calculators/ai-text-rewriter.html'">
+      <i class="fas fa-pencil-alt"></i>
+      <span>AI Text Rewriter (Safe Version)</span>
+    </div>
+
+    <div class="tool-card" onclick="location.href='calculators/ai-grammar-fixer.html'">
+      <i class="fas fa-edit"></i>
+      <span>AI Grammar Fixer</span>
+    </div>
+
+    <div class="tool-card" onclick="location.href='calculators/ai-summary.html'">
+      <i class="fas fa-align-left"></i>
+      <span>AI Summary Tool</span>
+    </div>
+  </div>
+</div>
+
+<footer>© 2025 ToolMint — All Rights Reserved</footer>
+
+</body>
+</html>
