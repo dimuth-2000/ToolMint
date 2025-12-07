@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Summary Tool – ToolMint</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .tool-container { max-width: 800px; margin: 20px auto; padding: 15px; }
+    .section { background-color: #1a1a1a; padding: 15px; border-radius: 8px; margin-bottom: 15px; }
+    textarea { width: 100%; padding: 10px; border-radius: 5px; background: #333; color: #fff; border: none; resize: vertical; }
+    button { padding: 10px 20px; background-color: #0d6efd; color: #fff; border: none; border-radius: 5px; cursor: pointer; }
+    button:hover { background-color: #0056b3; }
+    .result-box { background: #222; padding: 10px; border-radius: 5px; margin-top: 10px; min-height: 50px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 onclick="location.href='index.html'" style="cursor:pointer;">ToolMint</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<div class="tool-container">
+  <h2>AI Summary Tool</h2>
+
+  <div class="section">
+    <h3>Formula / Explanation:</h3>
+    <p>This tool summarizes long text into short, concise content, keeping the key points intact.</p>
+  </div>
+
+  <div class="section">
+    <h3>Example:</h3>
+    <p>Original: "The quick brown fox jumps over the lazy dog. The dog was sleeping all day long."<br>
+       Summary: "A fox jumped over a lazy dog that was sleeping all day."</p>
+  </div>
+
+  <div class="section">
+    <h3>Enter Text:</h3>
+    <textarea id="inputText" rows="5" placeholder="Type or paste your text here..."></textarea>
+    <button onclick="summarizeText()">Summarize</button>
+    <div class="result-box" id="resultText">Your summary will appear here.</div>
+  </div>
+</div>
+
+<script>
+function summarizeText() {
+  let text = document.getElementById("inputText").value;
+  if(!text) {
+    alert("Please enter text first!");
+    return;
+  }
+  // Simple demo summary (JS-based)
+  let sentences = text.split(". ");
+  let summary = sentences.slice(0, Math.ceil(sentences.length/2)).join(". ");
+  document.getElementById("resultText").innerText = summary;
+}
+</script>
+
+<footer>© 2025 ToolMint — All Rights Reserved</footer>
+
+</body>
+</html>
