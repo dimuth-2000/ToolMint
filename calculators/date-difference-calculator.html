@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Date Difference Calculator - ToolMint</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+<header>
+  <h1 onclick="location.href='../index.html'" style="cursor:pointer;">ToolMint</h1>
+  <nav><a href="../index.html">Home</a></nav>
+</header>
+
+<div class="container">
+  <h2><i class="fas fa-clock"></i> Date Difference Calculator</h2>
+  <p>Find the number of days between two dates.</p>
+
+  <input type="date" id="start-date">
+  <input type="date" id="end-date">
+  <button onclick="calculateDateDifference()">Calculate Difference</button>
+
+  <div class="result" id="date-result"></div>
+</div>
+
+<script>
+function calculateDateDifference() {
+  const start = new Date(document.getElementById('start-date').value);
+  const end = new Date(document.getElementById('end-date').value);
+  if (!start.getTime() || !end.getTime()) {
+    document.getElementById('date-result').innerText = "Please enter valid dates.";
+    return;
+  }
+  const diff = Math.abs(end - start);
+  const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+  document.getElementById('date-result').innerText = "Difference: " + days + " days";
+}
+</script>
+
+<footer>© 2025 ToolMint — All Rights Reserved</footer>
+</body>
+</html>
