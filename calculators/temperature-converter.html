@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Temperature Converter - ToolMint</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<header>
+  <h1 onclick="location.href='../index.html'" style="cursor:pointer;">ToolMint</h1>
+  <nav><a href="../index.html">Home</a></nav>
+</header>
+
+<div class="container">
+  <h2><i class="fas fa-temperature-half"></i> Temperature Converter</h2>
+  <p>Convert temperature between Celsius, Fahrenheit, and Kelvin.</p>
+
+  <label for="temp-value">Enter Temperature:</label>
+  <input type="number" id="temp-value" placeholder="Enter value">
+
+  <label for="from-unit">From:</label>
+  <select id="from-unit">
+    <option value="C">Celsius (°C)</option>
+    <option value="F">Fahrenheit (°F)</option>
+    <option value="K">Kelvin (K)</option>
+  </select>
+
+  <label for="to-unit">To:</label>
+  <select id="to-unit">
+    <option value="C">Celsius (°C)</option>
+    <option value="F">Fahrenheit (°F)</option>
+    <option value="K">Kelvin (K)</option>
+  </select>
+
+  <button onclick="convertTemperature()">Convert</button>
+
+  <div class="result" id="conversion-result"></div>
+
+  <h3>Formula</h3>
+  <ul>
+    <li><strong>C → F:</strong> F = (C × 9/5) + 32</li>
+    <li><strong>F → C:</strong> C = (F − 32) × 5/9</li>
+    <li><strong>C → K:</strong> K = C + 273.15</li>
+    <li><strong>K → C:</strong> C = K − 273.15</li>
+    <li><strong>F → K:</strong> K = (F − 32) × 5/9 + 273.15</li>
+    <li><strong>K → F:</strong> F = (K − 273.15) × 9/5 + 32</li>
+  </ul>
+
+  <h3>Example</h3>
+  <p>
+    Convert 25°C to Fahrenheit:<br>
+    F = (25 × 9/5) + 32 = 77°F
+  </p>
+</div>
+
+<script>
+function convertTemperature() {
+  const value = parseFloat(document.getElementById('temp-value').value);
+  const from = document.getElementById('from-unit').value;
+  const to = document.getElementById('to-unit').value;
+
+  if (isNaN(value)) {
+    document.getElementById('conversion-result').innerText = "Please enter a valid number.";
+    return;
+  }
+
+  let result;
+
+  if (from === to) {
+    result = value;
+  } else if (from === "C" && to === "F") {
+    result = (value * 9/5) + 32;
+  } else if (from === "F" && to === "C") {
+    result = (value - 32) * 5/9;
+  } else if (from === "C" && to === "K") {
+    result = value + 273.15;
+  } else if (from === "K" && to === "C") {
+    result = value - 273.15;
+  } else if (from === "F" && to === "K") {
+    result = (value - 32) * 5/9 + 273.15;
+  } else if (from === "K" && to === "F") {
+    result = (value - 273.15) * 9/5 + 32;
+  }
+
+  document.getElementById('conversion-result').innerText = `${value} ${from} = ${result.toFixed(2)} ${to}`;
+}
+</script>
+
+<footer>© 2025 ToolMint — All Rights Reserved</footer>
+
+</body>
+</html>
