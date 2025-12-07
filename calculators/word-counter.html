@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Word Counter - ToolMint</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .result { margin-top: 15px; padding: 10px; background-color: #1a1a1a; border-radius: 5px; color: #fff; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 onclick="location.href='../index.html'" style="cursor:pointer;">ToolMint</h1>
+  <nav><a href="../index.html">Home</a></nav>
+</header>
+
+<div class="container">
+  <h2><i class="fas fa-file-word"></i> Word Counter</h2>
+  <p>Count the number of words in your text.</p>
+
+  <textarea id="input-text" rows="5" placeholder="Enter text here"></textarea>
+  <button onclick="countWords()">Count Words</button>
+
+  <div class="result" id="word-result"></div>
+
+  <h3>Formula</h3>
+  <p>Word Count = Number of space-separated words in the text</p>
+
+  <h3>Example</h3>
+  <p>
+    Input: "Hello world! This is ToolMint."<br>
+    Word Count → 6
+  </p>
+</div>
+
+<script>
+function countWords() {
+  const text = document.getElementById("input-text").value.trim();
+  if (!text) {
+    document.getElementById("word-result").innerText = "Please enter some text.";
+    return;
+  }
+  const words = text.split(/\s+/).filter(word => word.length > 0);
+  document.getElementById("word-result").innerText = "Word Count: " + words.length;
+}
+</script>
+
+<footer>© 2025 ToolMint — All Rights Reserved</footer>
+</body>
+</html>
