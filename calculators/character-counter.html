@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Character Counter - ToolMint</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .result { margin-top: 15px; padding: 10px; background-color: #1a1a1a; border-radius: 5px; color: #fff; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 onclick="location.href='../index.html'" style="cursor:pointer;">ToolMint</h1>
+  <nav><a href="../index.html">Home</a></nav>
+</header>
+
+<div class="container">
+  <h2><i class="fas fa-keyboard"></i> Character Counter</h2>
+  <p>Count the number of characters in your text.</p>
+
+  <textarea id="input-text" rows="5" placeholder="Enter text here"></textarea>
+  <button onclick="countCharacters()">Count Characters</button>
+
+  <div class="result" id="char-result"></div>
+
+  <h3>Formula</h3>
+  <p>Character Count = Number of all characters including letters, numbers, punctuation, and spaces</p>
+
+  <h3>Example</h3>
+  <p>
+    Input: "Hello world!"<br>
+    Character Count → 12
+  </p>
+</div>
+
+<script>
+function countCharacters() {
+  const text = document.getElementById("input-text").value;
+  if (!text) {
+    document.getElementById("char-result").innerText = "Please enter some text.";
+    return;
+  }
+  document.getElementById("char-result").innerText = "Character Count: " + text.length;
+}
+</script>
+
+<footer>© 2025 ToolMint — All Rights Reserved</footer>
+</body>
+</html>
