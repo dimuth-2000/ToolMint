@@ -3,7 +3,6 @@
 <head>
   <title>ToolMint – Online Calculators</title>
   <link rel="stylesheet" href="style.css">
-  <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
@@ -21,7 +20,7 @@
   <h2>All Tools & Calculators</h2>
   <p>Fast, accurate, easy-to-use calculators for everyday tasks.</p>
 
-  <!-- MOST POPULAR 10 TOOLS FIRST -->
+  <!-- MOST POPULAR 10 TOOLS -->
   <h3>Most Popular Tools</h3>
   <div class="tool-grid">
     <div class="tool-card"><a href="calculators/age-calculator.html"><i class="fas fa-calendar-alt"></i> Age Calculator</a></div>
@@ -36,25 +35,85 @@
     <div class="tool-card"><a href="calculators/nic-calculator.html"><i class="fas fa-id-card"></i> Sri Lankan NIC Calculator</a></div>
   </div>
 
-  <!-- CATEGORIES BELOW -->
-  <h3>Categories</h3>
-  <div class="categories">
-    <div class="tool-card" onclick="location.href='math-percentage-tools.html'">   <i class="fas fa-robot"></i>  Math & Percentage Tools </div>
-    <div class="tool-card"><i class="fas fa-calendar-alt"></i> Date & Time Tools</div>
-    <div class="tool-card"><i class="fas fa-exchange-alt"></i> Basic Converters</div>
-    <div class="tool-card"><i class="fas fa-heart"></i> Health Tools</div>
-    <div class="tool-card"><i class="fas fa-book"></i> Education Tools</div>
-    <div class="tool-card"><i class="fas fa-keyboard"></i> Text & Productivity Tools</div>
-    <div class="tool-card"><i class="fas fa-globe"></i> Website/SEO Tools</div>
-    <div class="tool-card" onclick="location.href='ai-tools.html'">   <i class="fas fa-robot"></i> AI-Assisted Tools (Simple JS API) </div>
-    <div class="tool-card"><i class="fas fa-star"></i> Advanced Tools</div>
+
+  <!-- CATEGORY: MATH & PERCENTAGE -->
+  <h3>Math & Percentage Tools</h3>
+  <div class="tool-grid">
+    <div class="tool-card"><a href="calculators/percentage-calculator.html"><i class="fas fa-percent"></i> Percentage Calculator</a></div>
+    <div class="tool-card"><a href="calculators/discount-calculator.html"><i class="fas fa-tag"></i> Discount Calculator</a></div>
+    <div class="tool-card"><a href="calculators/profit-loss-calculator.html"><i class="fas fa-chart-line"></i> Profit/Loss Calculator</a></div>
+    <div class="tool-card"><a href="calculators/simple-interest-calculator.html"><i class="fas fa-coins"></i> Simple Interest Calculator</a></div>
+    <div class="tool-card"><a href="calculators/compound-interest-calculator.html"><i class="fas fa-chart-pie"></i> Compound Interest Calculator</a></div>
+    <div class="tool-card"><a href="calculators/loan-calculator.html"><i class="fas fa-calculator"></i> Loan EMI Calculator</a></div>
+  </div>
+
+
+  <!-- CATEGORY: DATE & TIME -->
+  <h3>Date & Time Tools</h3>
+  <div class="tool-grid">
+    <div class="tool-card"><a href="calculators/age-calculator.html"><i class="fas fa-clock"></i> Age Calculator</a></div>
+    <div class="tool-card"><a href="calculators/date-difference-calculator.html"><i class="fas fa-hourglass-half"></i> Date Difference Calculator</a></div>
+  </div>
+
+
+  <!-- CATEGORY: BASIC CONVERTERS -->
+  <h3>Basic Converters</h3>
+  <div class="tool-grid">
+    <div class="tool-card"><a href="calculators/temperature-converter.html"><i class="fas fa-thermometer-half"></i> Temperature Converter</a></div>
+    <div class="tool-card"><a href="calculators/case-converter.html"><i class="fas fa-text-height"></i> Case Converter</a></div>
+  </div>
+
+
+  <!-- CATEGORY: HEALTH TOOLS -->
+  <h3>Health Tools</h3>
+  <div class="tool-grid">
+    <div class="tool-card"><a href="calculators/bmi-calculator.html"><i class="fas fa-heartbeat"></i> BMI Calculator</a></div>
+  </div>
+
+
+  <!-- CATEGORY: EDUCATION TOOLS -->
+  <h3>Education Tools</h3>
+  <div class="tool-grid">
+    <div class="tool-card"><a href="calculators/word-counter.html"><i class="fas fa-file-word"></i> Word Counter</a></div>
+    <div class="tool-card"><a href="calculators/character-counter.html"><i class="fas fa-keyboard"></i> Character Counter</a></div>
+  </div>
+
+
+  <!-- CATEGORY: TEXT & PRODUCTIVITY TOOLS -->
+  <h3>Text & Productivity Tools</h3>
+  <div class="tool-grid">
+    <div class="tool-card"><a href="calculators/case-converter.html"><i class="fas fa-text-height"></i> Case Converter</a></div>
+    <div class="tool-card"><a href="ai/ai-rewriter.html"><i class="fas fa-pen-to-square"></i> AI Text Rewriter</a></div>
+    <div class="tool-card"><a href="ai/ai-grammar.html"><i class="fas fa-check"></i> AI Grammar Fixer</a></div>
+    <div class="tool-card"><a href="ai/ai-summary.html"><i class="fas fa-book-open"></i> AI Summary Tool</a></div>
+  </div>
+
+
+  <!-- CATEGORY: WEBSITE / SEO TOOLS -->
+  <h3>Website & SEO Tools</h3>
+  <div class="tool-grid">
+    <div class="tool-card"><i class="fas fa-wrench"></i> Coming Soon</div>
+  </div>
+
+
+  <!-- CATEGORY: AI ASSISTED TOOLS -->
+  <h3>AI-Assisted Tools (Simple JS API)</h3>
+  <div class="tool-grid">
+    <div class="tool-card"><a href="ai/ai-rewriter.html"><i class="fas fa-robot"></i> AI Text Rewriter (Safe)</a></div>
+    <div class="tool-card"><a href="ai/ai-grammar.html"><i class="fas fa-spell-check"></i> AI Grammar Fixer</a></div>
+    <div class="tool-card"><a href="ai/ai-summary.html"><i class="fas fa-align-left"></i> AI Summary Tool</a></div>
+  </div>
+
+
+  <!-- CATEGORY: ADVANCED TOOLS -->
+  <h3>Advanced Tools</h3>
+  <div class="tool-grid">
+    <div class="tool-card"><i class="fas fa-tools"></i> Coming Soon</div>
   </div>
 
 </div>
 
-<footer>
-  © 2025 ToolMint — All Rights Reserved
-</footer>
+<footer>© 2025 ToolMint — All Rights Reserved</footer>
 
 </body>
 </html>
