@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
   <title>ToolMint – Online Calculators</title>
   <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
@@ -20,9 +22,12 @@
   <h2>All Tools & Calculators</h2>
   <p>Fast, accurate, easy-to-use calculators for everyday tasks.</p>
 
+  <!-- SEARCH BOX -->
+  <input type="text" id="toolSearch" placeholder="Search tools..." class="search-box" onkeyup="searchTools()">
+
   <!-- MOST POPULAR 10 TOOLS -->
   <h3>Most Popular Tools</h3>
-  <div class="tool-grid">
+  <div class="tool-grid" id="most-popular">
     <div class="tool-card"><a href="calculators/age-calculator.html"><i class="fas fa-calendar-alt"></i> Age Calculator</a></div>
     <div class="tool-card"><a href="calculators/bmi-calculator.html"><i class="fas fa-heart"></i> BMI Calculator</a></div>
     <div class="tool-card"><a href="calculators/date-difference-calculator.html"><i class="fas fa-clock"></i> Date Difference Calculator</a></div>
@@ -35,7 +40,6 @@
     <div class="tool-card"><a href="calculators/nic-calculator.html"><i class="fas fa-id-card"></i> Sri Lankan NIC Calculator</a></div>
   </div>
 
-
   <!-- CATEGORY: MATH & PERCENTAGE -->
   <h3>Math & Percentage Tools</h3>
   <div class="tool-grid">
@@ -47,73 +51,102 @@
     <div class="tool-card"><a href="calculators/loan-calculator.html"><i class="fas fa-calculator"></i> Loan EMI Calculator</a></div>
   </div>
 
-
   <!-- CATEGORY: DATE & TIME -->
   <h3>Date & Time Tools</h3>
   <div class="tool-grid">
     <div class="tool-card"><a href="calculators/age-calculator.html"><i class="fas fa-clock"></i> Age Calculator</a></div>
     <div class="tool-card"><a href="calculators/date-difference-calculator.html"><i class="fas fa-hourglass-half"></i> Date Difference Calculator</a></div>
+    <div class="tool-card"><a href="calculators/countdown-timer.html"><i class="fas fa-hourglass"></i> Countdown Timer</a></div>
   </div>
-
 
   <!-- CATEGORY: BASIC CONVERTERS -->
   <h3>Basic Converters</h3>
   <div class="tool-grid">
     <div class="tool-card"><a href="calculators/temperature-converter.html"><i class="fas fa-thermometer-half"></i> Temperature Converter</a></div>
-    <div class="tool-card"><a href="calculators/case-converter.html"><i class="fas fa-text-height"></i> Case Converter</a></div>
+    <div class="tool-card"><a href="calculators/length-converter.html"><i class="fas fa-ruler"></i> Length Converter</a></div>
+    <div class="tool-card"><a href="calculators/weight-converter.html"><i class="fas fa-weight-scale"></i> Weight Converter</a></div>
+    <div class="tool-card"><a href="calculators/speed-converter.html"><i class="fas fa-tachometer-alt"></i> Speed Converter</a></div>
+    <div class="tool-card"><a href="calculators/currency-converter.html"><i class="fas fa-money-bill"></i> Currency Converter</a></div>
   </div>
-
 
   <!-- CATEGORY: HEALTH TOOLS -->
   <h3>Health Tools</h3>
   <div class="tool-grid">
     <div class="tool-card"><a href="calculators/bmi-calculator.html"><i class="fas fa-heartbeat"></i> BMI Calculator</a></div>
+    <div class="tool-card"><a href="calculators/calorie-calculator.html"><i class="fas fa-apple-alt"></i> Calorie Calculator</a></div>
+    <div class="tool-card"><a href="calculators/water-intake-calculator.html"><i class="fas fa-tint"></i> Water Intake Calculator</a></div>
   </div>
-
 
   <!-- CATEGORY: EDUCATION TOOLS -->
   <h3>Education Tools</h3>
   <div class="tool-grid">
-    <div class="tool-card"><a href="calculators/word-counter.html"><i class="fas fa-file-word"></i> Word Counter</a></div>
-    <div class="tool-card"><a href="calculators/character-counter.html"><i class="fas fa-keyboard"></i> Character Counter</a></div>
+    <div class="tool-card"><a href="calculators/typing-speed-test.html"><i class="fas fa-keyboard"></i> Typing Speed Test</a></div>
+    <div class="tool-card"><a href="calculators/reading-time-calculator.html"><i class="fas fa-book-open"></i> Reading Time Calculator</a></div>
   </div>
-
 
   <!-- CATEGORY: TEXT & PRODUCTIVITY TOOLS -->
   <h3>Text & Productivity Tools</h3>
   <div class="tool-grid">
     <div class="tool-card"><a href="calculators/case-converter.html"><i class="fas fa-text-height"></i> Case Converter</a></div>
-    <div class="tool-card"><a href="ai/ai-rewriter.html"><i class="fas fa-pen-to-square"></i> AI Text Rewriter</a></div>
-    <div class="tool-card"><a href="ai/ai-grammar.html"><i class="fas fa-check"></i> AI Grammar Fixer</a></div>
-    <div class="tool-card"><a href="ai/ai-summary.html"><i class="fas fa-book-open"></i> AI Summary Tool</a></div>
+    <div class="tool-card"><a href="calculators/word-counter.html"><i class="fas fa-file-word"></i> Word Counter</a></div>
+    <div class="tool-card"><a href="calculators/character-counter.html"><i class="fas fa-keyboard"></i> Character Counter</a></div>
+    <div class="tool-card"><a href="calculators/password-generator.html"><i class="fas fa-key"></i> Random Password Generator</a></div>
   </div>
-
 
   <!-- CATEGORY: WEBSITE / SEO TOOLS -->
   <h3>Website & SEO Tools</h3>
   <div class="tool-grid">
-    <div class="tool-card"><i class="fas fa-wrench"></i> Coming Soon</div>
+    <div class="tool-card"><a href="calculators/meta-tag-generator.html"><i class="fas fa-tags"></i> Meta Tag Generator</a></div>
+    <div class="tool-card"><a href="calculators/utm-link-builder.html"><i class="fas fa-link"></i> UTM Link Builder</a></div>
+    <div class="tool-card"><a href="calculators/url-encoder.html"><i class="fas fa-code"></i> URL Encoder/Decoder</a></div>
+    <div class="tool-card"><a href="calculators/qr-code-generator.html"><i class="fas fa-qrcode"></i> QR Code Generator</a></div>
   </div>
-
 
   <!-- CATEGORY: AI ASSISTED TOOLS -->
   <h3>AI-Assisted Tools (Simple JS API)</h3>
   <div class="tool-grid">
-    <div class="tool-card"><a href="ai/ai-rewriter.html"><i class="fas fa-robot"></i> AI Text Rewriter (Safe)</a></div>
-    <div class="tool-card"><a href="ai/ai-grammar.html"><i class="fas fa-spell-check"></i> AI Grammar Fixer</a></div>
+    <div class="tool-card"><a href="ai/ai-text-rewriter.html"><i class="fas fa-robot"></i> AI Text Rewriter (Safe)</a></div>
+    <div class="tool-card"><a href="ai/ai-grammar-fixer.html"><i class="fas fa-spell-check"></i> AI Grammar Fixer</a></div>
     <div class="tool-card"><a href="ai/ai-summary.html"><i class="fas fa-align-left"></i> AI Summary Tool</a></div>
   </div>
-
 
   <!-- CATEGORY: ADVANCED TOOLS -->
   <h3>Advanced Tools</h3>
   <div class="tool-grid">
-    <div class="tool-card"><i class="fas fa-tools"></i> Coming Soon</div>
+    <div class="tool-card"><a href="calculators/pdf-to-word.html"><i class="fas fa-file-pdf"></i> PDF to Word Converter</a></div>
+    <div class="tool-card"><a href="calculators/image-compressor.html"><i class="fas fa-compress"></i> Image Compressor</a></div>
+    <div class="tool-card"><a href="calculators/image-to-base64.html"><i class="fas fa-image"></i> Image to Base64</a></div>
+    <div class="tool-card"><a href="calculators/online-notepad.html"><i class="fas fa-sticky-note"></i> Online Notepad</a></div>
+    <div class="tool-card"><a href="calculators/resume-builder.html"><i class="fas fa-id-badge"></i> Resume Builder</a></div>
+    <div class="tool-card"><a href="calculators/invoice-generator.html"><i class="fas fa-file-invoice"></i> Invoice Generator</a></div>
   </div>
+
+  <!-- NO RESULTS MESSAGE -->
+  <div id="noResults" style="display:none; margin-top:20px; color:#ffcccc;">No results found.</div>
 
 </div>
 
 <footer>© 2025 ToolMint — All Rights Reserved</footer>
+
+<script>
+function searchTools() {
+  const input = document.getElementById("toolSearch").value.toLowerCase().trim();
+  const cards = document.querySelectorAll(".tool-card");
+  let visibleCount = 0;
+
+  cards.forEach(card => {
+    const text = card.innerText.toLowerCase();
+    if (!input || text.includes(input)) {
+      card.style.display = "block";
+      visibleCount++;
+    } else {
+      card.style.display = "none";
+    }
+  });
+
+  document.getElementById("noResults").style.display = visibleCount === 0 ? "block" : "none";
+}
+</script>
 
 </body>
 </html>
